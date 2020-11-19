@@ -1,1 +1,1 @@
-# calkuta
+# paymentCalculatorApp
