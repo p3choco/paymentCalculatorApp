@@ -1,6 +1,7 @@
 export class TaskDto {
 
-    public requestName: string;
+    public name: string;
     public penaltyForDay: number;
+    public deadline: Date;
     public isDone: boolean;
 }
