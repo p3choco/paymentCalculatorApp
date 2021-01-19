@@ -10,6 +10,7 @@ import { TaskDto } from 'src/app/Logic/Dtos/task.dto';
   export class CardComponent implements OnInit {
 
     public tasks: TaskDto[];
+    public selectedTask: TaskDto;
 
     constructor(){
     }
@@ -59,11 +60,14 @@ import { TaskDto } from 'src/app/Logic/Dtos/task.dto';
                 penaltyForDay: 1000,
             },
         ];
-        console.log(this.tasks);
+        this.selectedTask = this.tasks[0];
     }
     public calculateTimeToExecute(task: TaskDto): number {
-         return  Math.floor(( task.deadline.getTime()-new Date().getTime())/(1000 * 3600 * 24));
+         return  Math.abs(Math.floor(( task.deadline.getTime()-new Date().getTime())/(1000 * 3600 * 24)));
     }
 
+    public selectCard(task: TaskDto) {
+        this.selectedTask = task;
+    }
 
   }

@@ -1,20 +1,20 @@
 <div class="well well-lg card col-lg-5 row">
     <div class = "name">
-         <h1>{{tasks[0].name}}</h1>
+         <h1>{{selectedTask.name}}</h1>
     </div>
     <div class = "cardElement">
-        <h2>Deadline<br><br>{{tasks[0].deadline | date:'dd.MM.yyyy'}}</h2>
+        <h2>Deadline<br><br>{{selectedTask.deadline | date:'dd.MM.yyyy'}}</h2>
     </div>
     <div class = "cardElement">
-        <h2>Pozostały czas:<br><br>{{calculateTimeToExecute(tasks[0] )}} dni</h2>
+        <h2>Pozostały czas:<br><br>{{calculateTimeToExecute(selectedTask )}} dni</h2>
     </div>
     <div class = "cardElement">
-        <h2>Kara za dzień:<br><br>{{tasks[0].penaltyForDay}} zł</h2>
+        <h2>Kara za dzień:<br><br>{{selectedTask.penaltyForDay}} zł</h2>
     </div>
     <button type="button" class="btn-lg btn-success done">Zadanie skończone</button>
 </div>
 
 
 <ul class="list-group col-lg-2 sticker">
-    <li class="list-group-item row" *ngFor="let task of tasks">{{task.name}} - {{task.penaltyForDay}} - {{task.deadline | date:'dd.MM.yyyy'}}</li>
+    <li class="list-group-item row" *ngFor="let task of tasks" (click)="selectCard(task)">{{task.name}} - {{task.penaltyForDay}} - {{task.deadline | date:'dd.MM.yyyy'}}</li>
 </ul>
